@@ -1,0 +1,34 @@
+<?php
+session_start();
+if($_SESSION['user']!='admin'){header('location:error.php');}
+include "../dbfiles/config.php";
+$myusername=$_POST['username']; 
+$mypassword=$_POST['password'];
+$myusername = stripslashes($myusername);
+$mypassword = stripslashes($mypassword);
+$mypassword= md5($mypassword);
+class checklogin{
+    private $username;
+    private $password;
+    function check_login($u, $p){
+        $this->username= $u;
+        $this->password= $p;
+        $query="SELECT * FROM users WHERE username='$this->username' and password='$this->password'";
+        $result=mysql_query($query);
+        $count=mysql_num_rows($result);
+        echo $count;
+        if($count==1)
+        {
+            $_SESSION['user']=$this->username;
+            session_cache_expire(15);
+                header("location:../admin/adminhome.php");
+            }
+        else
+        {
+            header("location:error.php");
+        }
+    }
+}
+$checklog= new checklogin();
+$checklog->check_login($myusername, $mypassword);
+?>

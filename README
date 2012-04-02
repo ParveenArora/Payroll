@@ -1,1 +1,30 @@
-README File about payroll system.
+INSTALLATION MANUAL FOR PAYROLL MANAGEMENT
+SYSTEM
+Below given are the guidelines to install the payroll system.
+Installing Required Software
+LAMP stands for Linux, Apache, MySQL and PHP and is a package that provides all these four in
+one go. Commands to install LAMP in Linux are:-
+DO Press TAB to go next option and space for selection in terminal. And Do
+Provide Some Passwords When asked otherwise u have to do installation again
+#sudo apt-get install apache2
+#sudo apt-get install php5 libapache2-mod-php5
+#sudo apt-get install mysql-server mysql-server
+#sudo apt -get install phpmyadmin
+#sudo apt-get install libapache2-mod-auth-mysql php5-mysql
+#sudo /etc/init.d/apache2 restart
+set password according to your choose and check on bowers
+http//:localhost
+http//:localhost/phpmyadmin
+Installation of Required Softwares in Windows
+For Windows many packages are available like WAMP, XAMPP, WAMP (From bitnami). One can
+easily search them on Google and can easily install it.
+Setting up Project
+After installing all required softwares place the project main folder in www root folder. In case of
+lamp it will be /var/www , in case of XAMPP and WAMPP (Bitnami) it will be folder_packg_name/
+apache/htdocs/ and in case of WAMPP it will be packge_install_folder/apace/www
+Setting Up Database
+1. After this time to setup database. Either open mysql command line utility or open
+http://localhost/phpmyadmin which is GUI utility to import a sql file. Find the .sql file in the
+downloaded folder and import it into new database you made.
+2. Also make changes in dbfiles/config.php inside the main root folder as according to you.
+
